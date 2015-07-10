@@ -1,0 +1,12 @@
+node_modules/
+bower_components/
+.sass-cache/
+.tmp/
+dist/
+docs
+web/src/vendors/*/**/*
+cordova/platforms
+cordova/plugins
+cordova/www
+cordova/resources
+release
