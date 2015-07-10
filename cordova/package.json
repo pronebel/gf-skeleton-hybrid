@@ -1,0 +1,16 @@
+{
+  "name": "理财账户",
+  "version": "1.0.0",
+  "description": "理财账户: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "com.ionic.keyboard"
+  ],
+  "cordovaPlatforms": [
+    "android",
+    "ios"
+  ]
+}
