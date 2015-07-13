@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-controller="globalCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>理财账户 App - 广发证券</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/bundle.css -->
+    <link rel="stylesheet" type="text/css" href="/vendors/patternLock.css"/>
+    <link rel="stylesheet" href="app/bundle.css">
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <script src="/vendors/jquery.js"></script>
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <script src="/vendors/lodash.js"></script>
+    <script src="/vendors/patternLock.min.js"></script>
+    <script src="/vendors/Chart.js"></script>
+    <script src="/vendors/highcharts-custom.js"></script>
+    <script src="../bower_components/ionic/release/js/ionic.js"></script>
+    <script src="../bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="/vendors/ngStorage.js"></script>
+    <script src="/vendors/angular-mocks.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-controller="demoCtrl">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <ion-nav-bar>
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-back-button class="button-link">
+        <i class="ion-ios-arrow-left"></i>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <a class="button button-link" ng-click="popDemoList()">
+          test
+        </a>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view>
+      <global-tabs></global-tabs>
+    </ion-nav-view>
+
+    <!-- <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script> -->
+    <!-- build:js({.tmp/serve,.tmp/partials}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </body>
+</html>

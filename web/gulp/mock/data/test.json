@@ -1,0 +1,38 @@
+{
+    "data": {
+        "periods": [0, 1],
+        "metrics": [{
+            "conditions": "status=1",
+            "id": 16,
+            "name": "test_metrics_16",
+            "target": "count(1)",
+            "type": 0
+        }, {
+            "conditions": "",
+            "id": 17,
+            "name": "test_metrics_17",
+            "target": "test_metric1 + test_metric2",
+            "type": 1
+        }, {
+            "conditions": "",
+            "id": 18,
+            "name": "test_metrics_18",
+            "target": "test_metric1 + test_metric2",
+            "type": 2
+        }],
+        "owner": "zuxinglong",
+        "dimensions": [{
+            "id": 16,
+            "name": "test_dimension_16"
+        }, {
+            "id": 17,
+            "name": "test_dimension_17"
+        }, {
+            "id": 18,
+            "name": "test_dimension_18"
+        }],
+        "comment": "",
+        "name": "测试 Report Name"
+    },
+    "msg": ""
+}
