@@ -35,6 +35,16 @@ if [[ $1 = 'bump' ]]; then
     # sed -i "" "s/VERSION_NUMBER/$version/g"         ./App/www/index.html
 fi
 
+apkOut = "platforms/android/build/outputs/apk/android-debug.apk";
+ipaOut = ''
+pygUKey = "0e5fe9c73946e67627b0210209eeb617";
+pgyApiKey = "39ef26f4bcdc8561c803a9e22a9d9f70";
+
+if [[ $1 = 'pgy' ]]; then
+  curl -F "file=@{$apkOut}" -F "uKey={$uKey}" -F "_api_key={$apiKey}" -F "publishRange=2" http://www.pgyer.com/apiv1/app/upload
+fi
+
+
 if [[ $1 = 'build' ]]; then
     if [[ $2 = 'dev' ]]; then
         # Android build
