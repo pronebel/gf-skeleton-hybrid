@@ -1,4 +1,4 @@
-var _ = require('lodash')
+var _ = require('lodash'),
     fs = require('fs');
 
 function wrapper(data) {

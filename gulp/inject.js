@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 
 var $ = require('gulp-load-plugins')();
-
+var bowerFiles = require('main-bower-files');
 var wiredep = require('wiredep').stream;
 
 module.exports = function(options) {
@@ -25,10 +25,18 @@ module.exports = function(options) {
     };
 
     return gulp.src(options.src + '/*.html')
-      // .pipe($.inject(injectStyles, injectOptions))
+      // .pipe($.inject(injectStyles, injectOptions)) process at styles task
+      // .pipe(wiredep(options.wiredep))
+      .pipe($.inject(
+        gulp.src(bowerFiles({
+          paths: options.wiredep
+        }), {read: false}), {
+          relative: true,
+          ignorePath: 'web',
+          name: 'bower'
+        }
+      ))
       .pipe($.inject(injectScripts, injectOptions))
-      .pipe(wiredep(options.wiredep))
       .pipe(gulp.dest(options.tmp + '/serve'));
-
   });
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-
+var runSeq = require('run-sequence');
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
@@ -43,6 +43,7 @@ module.exports = function(options) {
       .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
+      .pipe($.preprocess({DEBUG: false}))
       // .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
@@ -74,8 +75,8 @@ module.exports = function(options) {
 
   gulp.task('assets', function () {
     return gulp.src([
-      options.src + '/assets/**/*'
-      // '!' + options.src + '/**/*.{html,css,js,scss}'
+      options.src + '/assets/**/*',
+      '!' + options.src + '/assets/images/sprites/*.png'
     ])
       .pipe(gulp.dest(options.dist + '/assets'));
   });
@@ -86,5 +87,7 @@ module.exports = function(options) {
     }, done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'assets']);
+  gulp.task('build', function (cb) {
+    runSeq('clean', ['html', 'assets'], cb)
+  });
 };

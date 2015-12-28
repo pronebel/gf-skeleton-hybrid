@@ -8,15 +8,15 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep').stream;
 
 module.exports = function(options) {
-  gulp.task('styles', function () {
+
+  gulp.task('styles', ['sprites'], function () {
     var sassOptions = {
       style: 'expanded'
     };
 
     var injectFiles = gulp.src([
-      options.src + '/app/**/*.scss',
-      '!' + options.src + '/app/index.scss',
-      '!' + options.src + '/app/vendor.scss'
+      options.src + '/app/*/*.scss',
+      '!' + options.src + '/app/ionic/**/*.scss'
     ], { read: false });
 
     var injectOptions = {
@@ -35,15 +35,15 @@ module.exports = function(options) {
     return gulp.src([
       options.src + '/app/bundle.scss'
     ])
-      /*.pipe(indexFilter)
+      // .pipe(indexFilter)
       .pipe($.inject(injectFiles, injectOptions))
-      .pipe(indexFilter.restore())
-      .pipe(vendorFilter)
-      .pipe(wiredep(options.wiredep))
-      .pipe(vendorFilter.restore())*/
+      // .pipe(indexFilter.restore())
+      // .pipe(vendorFilter)
+      // .pipe(wiredep(options.wiredep))
+      // .pipe(vendorFilter.restore())
       .pipe($.sourcemaps.init())
       .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
-      .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
+      .pipe($.autoprefixer({ browsers: ['last 2 versions', 'android >= 4.2'] })).on('error', options.errorHandler('Autoprefixer'))
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest(options.tmp + '/serve/app/'))
       .pipe(browserSync.reload({ stream: true }));
