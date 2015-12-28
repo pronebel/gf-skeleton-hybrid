@@ -1,14 +1,8 @@
-@import "_variables.scss";
-@import "ionic/scss/ionic.scss";
+/* Dangerous */
 
-@import "ionic.scss";
-@import "components.scss";
-@import "biz.scss";
+@import "sprites.scss";
+@include sprites($spritesheet-sprites);
+@include retina-sprites($retina-groups);
 
-@import "bank-icon";
-
-
-// http://forum.ionicframework.com/t/css-border-radius-in-android-4-2-2/6507/2
-.button-block {
-  background-clip: padding-box;
-}
+// injector
+// endinjector

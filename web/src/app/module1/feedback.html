@@ -1,0 +1,30 @@
+<ion-view view-title="意见反馈" class="pg-more-feedback" cache-view="false">
+
+  <ion-content class="has-header">
+    <div class="case-panel">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <textarea placeholder="请在这里输入您的意见或建议，我们将用心倾听，不断优化产品。（10~300个字）"
+            ng-model="vm.content"></textarea>
+        </label>
+        <!-- <label class="item item-input">
+          <input type="text" placeholder="请在这里输入您的邮箱，以便我们给您答复">
+        </label> -->
+      </div>
+
+      <div class="padding">
+        <button class="button button-block button-positive"
+          ng-click="submit($event)">
+          提交
+        </button>
+      </div>
+    </div>
+
+    <!-- <div ng-show="vm.isShowThanks">
+      <p class="x-hero-status">
+        <i class="icon ion-checkmark-circled"></i>
+          我们将尽快给您答复。
+      </p>
+    </div> -->
+  </ion-content>
+</ion-view>

@@ -1,6 +1,6 @@
 {
-  "name": "gfLicai",
-  "version": "0.0.0",
+  "name": "gf-skeleton-hybrid",
+  "version": "1.0.0",
   "dependencies": {
     "angular-animate": "~1.4.x",
     "angular-touch": "~1.4.x",
@@ -8,7 +8,10 @@
     "angular-resource": "~1.4.x",
     "angular-ui-router": "~0.2.13",
     "angular": "~1.4.x",
-    "ionic": "~1.0.0"
+    "ionic": "~1.0.0",
+    "ngstorage": "~0.3.10",
+    "angular-mocks": "~1.4.8",
+    "lodash": "~3.10.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.x"

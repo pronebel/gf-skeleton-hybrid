@@ -1,0 +1,36 @@
+
+.pg-more-feedback {
+  .list.list-inset {
+    background-color: inherit;
+    label {
+      margin-bottom: 20px;
+      input, textarea {
+        // color: #fff;
+      }
+    }
+    textarea {
+      background-color: inherit;
+      min-height: 90px;
+    }
+  }
+
+  .hero {
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    i {
+      display: block;
+      font-size: 60px;
+      line-height: 80px;
+    }
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+.pg-more-about {
+  .x-head-tip {
+    font-size: 14px;
+  }
+}
