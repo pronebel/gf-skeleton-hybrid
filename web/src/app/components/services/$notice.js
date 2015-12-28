@@ -2,8 +2,8 @@
 
 var defaultOpt = {
   noBackdrop: true,
-  duration: 2000
-  // hideOnStateChange
+  duration: 2000,
+  hideOnStateChange: true
 };
 
 var noticeElem;
@@ -13,14 +13,18 @@ var noticeElem;
 
 export default ($window, $ionicLoading, $ionicPopup, $rootScope) => {
 
-  var show = _.curry((type, msg, opt={}) => {
+  var show = _.curry((type, opt={}, msg) => {
     var Tpl = {
       error: `
-        <i class="icon ion-ios-information-outline error"></i>
+        <i class="sprite icon-error-tip"></i>
         ${msg}
       `,
       info: `
-        <i class="icon ion-ios-information-outline info"></i>
+        <i class="sprite icon-error-tip"></i>
+        ${msg}
+      `,
+      succ: `
+        <i class="sprite icon-succ-tip"></i>
         ${msg}
       `,
       mega: `
@@ -39,13 +43,31 @@ export default ($window, $ionicLoading, $ionicPopup, $rootScope) => {
   });*/
 
   return {
-    error: show('error'),
-    info: show('info'),
-    mega: show('mega'),
+    error: show('error', null),
+    xinfo: show('error', {
+      hideOnStateChange: false
+    }),
+    info: show('info', null),
+    succ: show('succ', null),
+    mega: show('mega', null),
+    hide: ()=>{
+      $ionicLoading.hide();
+    },
+    global: (text)=>{
+      $ionicLoading.show({
+        template: '<ion-spinner icon="ios"></ion-spinner>' + (text ? '<br>'+text : ''),
+        animation: 'fade-in',
+        showBackdrop: true // 通过黑透明遮罩，来模态
+        // showDelay: 100
+      });
+    },
     alert: (msg) => {
       return $ionicPopup.alert({
-        template: `<i class="ion-ios-information-outline"></i>${msg}`,
-        cssClass: 'popup-notitle',
+        template: `
+          <p class="title">
+            <i class="sprite icon-error-tip"></i>${msg}
+          </p>
+        `,
         okText: '知道了'
       });
     },

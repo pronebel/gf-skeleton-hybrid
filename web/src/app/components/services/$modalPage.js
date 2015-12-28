@@ -13,25 +13,27 @@ export default ($rootScope, $ionicModal)=>{
         </div>
         <h1 class="title">{{$modalPageTitle}}</h1>
       </div>
-      <ion-content class="has-header" ng-class="$modalPageCss">
+      <ion-content class="has-header" ng-class="$modalPageCss"
+        overflow-scroll="$modalPageNative">
         TMP
       </ion-content>
     </ion-modal-view>
-  `, modal;
-
-  $root.$modalPageColse = function() {
-    modal && modal.hide();
-  };
+  `;
 
   return {
     open: (opt)=> {
-      // title, content, scope, css
-      $root.$modalPageTitle = opt.title||'';
-      $root.$modalPageCss = opt.css||'';
-      modal = $ionicModal.fromTemplate(
-        modalLayout.replace('TMP', opt.content // Todo: ng-bind-html
-      ), {
-        scope: opt.scope
+      if(Plgs) Plgs.Keyboard.close();
+      var modal = $ionicModal.fromTemplate(
+        modalLayout
+          .replace('TMP', opt.content)
+          .replace('$modalPageNative', opt.ofscroll?'true':'false'), {
+        scope: _.extend(opt.scope.$new(), {
+          $modalPageTitle: opt.title||'',
+          $modalPageCss: opt.css||'',
+          $modalPageColse() {
+            modal && modal.hide();
+          }
+        })
       });
       modal.show();
       return modal;

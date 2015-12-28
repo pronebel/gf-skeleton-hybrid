@@ -1,0 +1,78 @@
+.tabbed-slidebox {
+  &.btm {
+    .slider {
+      margin-bottom: -50px;
+    }
+  }
+  .tsb-icons {
+    text-align: center;
+    margin: 10px 0;
+    position: relative;
+    background-color:#fff;
+    a {
+        font-size: 16px;
+        display: inline-block;
+        width: 54px;
+        color: #333;
+        // -webkit-transform:translate3d(0,8px,0);
+      &.active {
+        color: $color-blue;
+        // -webkit-transform:translate3d(0,0,0);
+      }
+    }
+    .scroll a{
+      width:auto;
+      line-height: 43px;
+      text-decoration: none;
+      margin: 0 15px;
+      border-bottom: 3px solid transparent;
+      &.active {
+        border-bottom: 3px solid $color-blue;
+      }
+    }
+  }
+  .tsb-ic-wrp {
+    display: flex;
+    position: relative;
+    -webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+    -webkit-transform:translate3d(0,0,0);
+  }
+  .slider-slides {
+    width: 100%;
+  }
+  .slider {
+    height: 100%;
+  }
+  .slider-slide {
+    padding-top: 0px;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    font-weight: 300;
+    /* background-color: #0398dc;
+    h3{
+      color:#fff;
+      margin-top:10px;
+    } */
+  }
+  .tabbed-slidebox {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.tsb-hscroll.scroll-view{
+  white-space: nowrap;
+  margin:0 auto;
+}
+.tsb-hscroll.scroll-view .scroll-bar{
+  visibility:hidden;
+}
+.tsb-hscroll.scroll-view .scroll.onscroll{
+  -webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+/* .scroll{
+  height:100%;
+} */

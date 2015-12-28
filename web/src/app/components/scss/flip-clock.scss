@@ -1,0 +1,62 @@
+
+.investapp-countdown {
+  display: flex;
+
+  margin: 0;
+  padding: 30px 2%;
+  // margin-bottom: -20px;
+
+  span.flip-clock-label {
+    display: none;
+  }
+
+  ul {
+    background: #CAD7D8;
+  }
+
+  ul.flip {
+    font-size: 50px;
+    line-height: 60px;
+    height: 66px;
+    flex-grow: 1;
+    // box-shadow: 0 2px 5px rgba(182, 203, 203, 0.7);
+    box-shadow: none;
+  }
+
+  ul.play li.flip-clock-active .up .shadow {
+    background: linear-gradient(top, rgba(229, 245, 250, .1) 0%, rgba(229, 245, 250, 1) 100%);
+  }
+  ul.play li.flip-clock-before .up .shadow {
+    background: linear-gradient(top, rgba(229, 245, 250, .1) 0%, rgba(229, 245, 250, 1) 100%);
+  }
+
+  ul.play li.flip-clock-active .down .shadow {
+    background: linear-gradient(top, rgba(229, 245, 250, 1) 0%, rgba(229, 245, 250, .1) 100%);
+  }
+  ul.play li.flip-clock-before .down .shadow {
+    background: linear-gradient(top, rgba(229, 245, 250, 1) 0%, rgba(229, 245, 250, .1) 100%);
+  }
+
+  ul li a div div.inn {
+    font-size: 50px;
+    line-height: 60px;
+    background-color: #cbd8de;
+    text-shadow: none;
+    color: #999;
+  }
+
+  .flip-clock-divider {
+    height: 60px;
+    .flip-clock-dot {
+      background-color: #cbd8de;
+    }
+    .flip-clock-dot.bottom {
+      bottom: 10px;
+      left: 1px;
+    }
+    .flip-clock-dot.top {
+      top: 25px;
+      left: 1px;
+    }
+  }
+}
